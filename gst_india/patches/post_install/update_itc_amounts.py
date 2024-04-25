@@ -84,7 +84,7 @@ def execute():
         update_count += 1
 
         if update_count % 1000 == 0:
-            frappe.db.commit()
+            pass
 
 
 def get_gst_accounts(

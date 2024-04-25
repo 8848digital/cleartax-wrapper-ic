@@ -34,7 +34,6 @@ def before_tests():
 
     set_default_settings_for_tests()
     create_test_records()
-    frappe.db.commit()
 
     frappe.flags.country = "India"
     frappe.flags.skip_test_records = True

@@ -411,7 +411,6 @@ def _log_and_process_e_waybill(doc, log_data, fetch=False, comment=None):
     if comment:
         log.add_comment(text=comment)
 
-    frappe.db.commit()
 
     if log.is_cancelled:
         delete_file(doc, get_pdf_filename(log.name))
@@ -423,7 +422,6 @@ def _log_and_process_e_waybill(doc, log_data, fetch=False, comment=None):
         return
 
     _fetch_e_waybill_data(doc, log)
-    frappe.db.commit()
 
     ### Attach PDF
 
