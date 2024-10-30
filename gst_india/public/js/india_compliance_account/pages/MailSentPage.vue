@@ -1,8 +1,8 @@
 <template>
-  <div class="mail-sent-page contaier text-center">
+  <div class="mail-sent-page container text-center">
     <img
       class="mail-box-img"
-      src="/assets/gst_india/images/mail-box.png"
+      src="/assets/india_compliance/images/mail-box.png"
       alt=""
     />
     <h2 class="title">
@@ -52,17 +52,9 @@ export default {
     },
 
     async refresh() {
-      await this.$store.dispatch("initAuth");
+      await this.$store.dispatch("authenticate");
       this.$router.replace({ name: "auth" });
     }
-  },
-
-  beforeRouteEnter(to, from, next) {
-    next((vm) => {
-      if (!vm.$store.getters.hasSession)
-        return next({ name: "home", replace: true });
-      return next();
-    });
   },
 };
 </script>

@@ -49,23 +49,7 @@ export default {
   methods: {
     toggleAuthView() {
       this.isAccountRegistered = !this.isAccountRegistered;
-    },
-
-    async checkAccountRegisted(value) {
-      this.isAccountRegistered = await _isEmailRegistered(value);
-    },
-  },
-
-  beforeRouteEnter(to, from, next) {
-    next((vm) => {
-      if (vm.$store.getters.isLoggedIn)
-        return next({ name: "home", replace: true });
-
-      if (vm.$store.getters.hasSession)
-        return next({ name: "mailSent", replace: true });
-
-      next();
-    });
+    }
   },
 };
 </script>
@@ -104,8 +88,8 @@ export default {
   justify-content: space-between;
   padding: 45px 0;
   border-radius: var(--border-radius-md);
-  box-shadow: var(--card-shadow);
   background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
 }
 
 .auth-form .title {
