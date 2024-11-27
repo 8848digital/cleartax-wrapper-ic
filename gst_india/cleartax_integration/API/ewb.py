@@ -329,7 +329,7 @@ def cancel_ewb_dn(**kwargs):
             else:
                 headers['token'] = settings.get_password('production_auth_token')
         deliver_note = frappe.get_doc('Delivery Note', kwargs.get('delivery_note'))
-        gstin = frappe.get_value('Address', deliver_note.dispatch_address_name,'gstin')
+        gstin = frappe.get_value('Address', deliver_note.company_address,'gstin')
         data = json.loads(kwargs.get('data'))
         data = {
                     "ewbNo": deliver_note.ewaybill,
